@@ -275,12 +275,12 @@ def conditional_chi_squared(d1, d2, lt, l2):
     return proba
 
 
-def compute_beta_delta(d, logvol, tours=1, interpolate=True, 
+def compute_beta_delta(d, logvol, tours=1, interpolate=True,
                        probabilistic=False, ignore_lift_proba=False, lift_union_bound=False,
                        number_targets=1, verbose=False):
     """
     Computes the beta value for given dimension and volumes
-    It is assumed that the instance has been normalized and sphericized, 
+    It is assumed that the instance has been normalized and sphericized,
     i.e. that the covariance matrices of the secret is the identity
     :d: integer
     :vol: float
@@ -348,7 +348,7 @@ def compute_beta_delta(d, logvol, tours=1, interpolate=True,
                 cumulated_proba += remaining_proba * proba
                 remaining_proba *= 1. - proba
 
-            if verbose:        
+            if verbose:
                 print("β= %d,\t pr=%.4e, \t cum-pr=%.4e \t rem-pr=%.4e"%(beta, proba, cumulated_proba, remaining_proba))
 
             if remaining_proba < .001:
@@ -402,7 +402,7 @@ def kannan_embedding(A, target, factor=1):
     return lambd
 
 
-def recenter(elt):
+def recenter(elt, q):
     if elt > q / 2:
         return elt - q
     return elt
